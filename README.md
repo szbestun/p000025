@@ -7,12 +7,12 @@
 ### Git
 
 1. [fork项目](https://www.cnblogs.com/patchouli/p/6511251.html)
-1. 克隆项目到本地
+1. [克隆](https://jingyan.baidu.com/article/dca1fa6f0cc9bcf1a540524d.html)项目到本地
 
 	```sh
 	md ~/01factory
 	cd ~/01factory
-	git clone git@github.com:mm-works/p000025.git
+	git clone git@github.com:{yourname in github}/p000025.git
 	cd ./p000025/
 	yarn
 	```
