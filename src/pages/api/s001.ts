@@ -1,43 +1,32 @@
 import nextConnect from 'next-connect';
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextApiRequest, NextApiResponse, PageConfig } from 'next';
 import anylogger from 'anylogger';
 import '@mmstudio/an000042';
+import d001_a004 from '../../atoms/a004';
 
-const logger = anylogger('s001');
+const logger = anylogger('pages/api/d001/pg007/s001.ts');
 
-const handler = nextConnect<
-	NextApiRequest,
-	NextApiResponse<Record<string, unknown>>
->();
+export type Result = {
+	user: Table001;
+};
 
-const starttime = new Date().getTime();
+export type Query = {
 
-function format(millisecond: number) {
-	if (millisecond === undefined) {
-		return '';
-	}
-	const seconds = Math.floor(millisecond / 1000);
-	const hour = Math.floor(seconds / 60 / 60);
-	const min = Math.floor(seconds / 60) - hour * 60;
-	const second = seconds - hour * 60 * 60 - min * 60;
-	let txt = '';
-	if (hour) {
-		txt += `${hour}小时`;
-	}
-	if (min) {
-		txt += `${min}分`;
-	}
-	if (second) {
-		txt += `${second}秒`;
-	}
-	return txt;
 }
 
-handler.get((req, res) => {
-	logger.debug('request comming');
-	const now = new Date().getTime();
-	res.statusCode = 200;
-	res.json({ time: format(now - starttime) });
+export type Message = {
+}
+
+const handler = nextConnect<NextApiRequest, NextApiResponse<Result>>();
+
+handler.get(async (req, res) => {
+	logger.debug('cookies', req.cookies);
+	const user = await d001_a004(req);
+	res.status(200).json({
+		user
+	});
 });
+
+export const config = {} as PageConfig;
 
 export default handler;

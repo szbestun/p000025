@@ -1,9 +1,9 @@
-import React from 'react';
+import { Button as BaseButton } from '@geist-ui/react';
+import { ButtonProps } from '@geist-ui/react/dist/button/button';
 
-export default function c001() {
-	return (
-		<>
-			<style jsx>{''}</style>
-		</>
-	);
+/**
+ * 统一风格的Button按钮
+ */
+export default function Button(props: Partial<ButtonProps>) {
+	return <BaseButton auto ghost type='success-light' {...props}></BaseButton>;
 }

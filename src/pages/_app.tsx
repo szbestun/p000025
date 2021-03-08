@@ -1,8 +1,10 @@
 import { AppContext, AppInitialProps, NextWebVitalsMetric } from 'next/app';
 import { CssBaseline, GeistProvider } from '@geist-ui/react';
-import '../../styles/globals.css';
 import { SWRConfig } from 'swr';
 import anylogger from 'anylogger';
+import '../../styles/globals.css';
+import '../../styles/feidao.css';
+import '../../styles/iconfont.css';
 
 const logger = anylogger('app');
 
@@ -25,6 +27,11 @@ function App({ Component, pageProps }: AppInitialProps & AppContext) {
 				<CssBaseline />
 				<Component {...pageProps} />
 			</GeistProvider>
+			<style jsx global>{`
+body{
+background-color:#f4f4f4;
+}
+`}</style>
 		</SWRConfig>
 	);
 }

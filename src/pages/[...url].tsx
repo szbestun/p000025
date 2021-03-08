@@ -54,7 +54,7 @@ function C001() {
 /**
  * 404
  */
-const pg000: NextPage<IProps> = () => {
+const page: NextPage<IProps> = () => {
 	return (
 		<>
 			<Head>
@@ -69,4 +69,4 @@ export const config: PageConfig = {
 	amp: false
 };
 
-export default pg000;
+export default page;

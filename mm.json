@@ -1,0 +1,32 @@
+{
+	"doccode": "http://127.0.0.1:8890",
+	"max_file_size": 53687091200,
+	"minio": {
+		"endPoint": "127.0.0.1",
+		"port": 9000,
+		"accessKey": "mmstudio",
+		"secretKey": "Mmstudio123",
+		"useSSL": false,
+		"region": "cn-north-1",
+		"partSize": 5242880
+	},
+	"email": {
+		"secret": "Mmstudio123",
+		"baseurl": "http://localhost:8889",
+		"maxage": 60,
+		"server": "smtp://tao_qiufeng:bqrtomtd1983@smtp.126.com:25",
+		"from": "tao_qiufeng@126.com"
+	},
+	"session": {
+		"secret": "Mmstudio123",
+		"expiresIn": "30d"
+	},
+	"dbconfig": {
+		"client": "pg",
+		"connection": "postgres://mmstudio:Mmstudio123@127.0.0.1:5432/db002",
+		"pool": {
+			"min": 0,
+			"max": 7
+		}
+	}
+}

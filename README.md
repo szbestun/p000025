@@ -1,40 +1,46 @@
-# Next template
+# 开发步骤
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 下载代码并初始化
 
-You can create Next project:
+推荐使用Git命令的方式
 
-```bash
-yarn create next-app --example https://github.com/mm-tpl/next myapp
+### Git
+
+1. [fork项目](https://www.cnblogs.com/patchouli/p/6511251.html)
+1. 克隆项目到本地
+
+	```sh
+	md ~/01factory
+	cd ~/01factory
+	git clone git@github.com:mm-works/p000025.git
+	cd ./p000025/
+	yarn
+	```
+
+### Local
+
+这种方式无法提交代码，但可以本地运行
+
+```sh
+md ~/01factory
+cd ~/01factory
+wget https://github.com/mm-works/p000025/archive/main.zip
+unzip ./main.zip
+mv ./p000025-main ./p000025
+rm -f ./main.zip
+cd ./p000025/
+yarn
 ```
-
-or use my extension with vscode [mmstudio](https://marketplace.visualstudio.com/items?itemName=mm.mmstudio) with command `mmstudio: Create Project` and follow the guid.
 
 ## Getting Started
 
-First, run the development server:
+1. 运行命令进行开发：
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+	```bash
+	cd ~/01factory/p000025
+	yarn dev
+	code .
+	```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. 在浏览器中打开地址[http://localhost:3000](http://localhost:3000)
+1. 在vscode中打开页面 `src/pages/pg001` 修改代码并查看浏览器上的变化
