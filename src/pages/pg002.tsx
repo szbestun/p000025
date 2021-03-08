@@ -1,4 +1,3 @@
-import an49 from '@mmstudio/an000049';
 import { GetStaticProps, NextPage, PageConfig } from 'next';
 import anylogger from 'anylogger';
 import Head from 'next/head';
@@ -12,13 +11,7 @@ import 'swiper/swiper.min.css';
 
 const logger = anylogger('pages/pg002');
 
-/**
- * 成长路上
- */
-type IData1 = Pick<tb002, 'f004' | 'f007' | 'f002' | 'f001' | 'f014' | 'f012' | 'f015'>;
-
 interface IProps {
-	data1: IData1[];
 }
 
 /**
@@ -55,10 +48,10 @@ function C001() {
 /**
  * 主体
  */
-function C002({ data1 }: { data1: IData1[] }) {
+function C002() {
 	return <>
 		<div className="margin-0a w1200">
-			<C003 data1={data1} />
+			<C003 />
 			<C004 />
 		</div>
 	</>;
@@ -67,11 +60,11 @@ function C002({ data1 }: { data1: IData1[] }) {
 /**
  * 内容1
  */
-function C003({ data1 }: { data1: IData1[] }) {
+function C003() {
 	return <>
 		<C005 />
 		<C006 />
-		<C007 data={data1} />
+		<C007 />
 		<C008 />
 		<C009 />
 		<C010 />
@@ -156,22 +149,14 @@ function C006() {
 /**
  * 成长路上
  */
-function C007({ data }: { data: IData1[] }) {
-	data = data.map((it) => {
-		return {
-			...it,
-			// todo 如果图片f001是文件id，需要拼接服务器域名
-			f001: it.f001,
-			f014: Number(it.f014)
-		};
-	});
+function C007() {
 	return <>
 		<div className="flex-js-c">
 			<div className="s001">
-				<C016 data={data} />
+				<C016 />
 			</div>
 			<div className="s002">
-				<C017 data={data} />
+				<C017 />
 			</div>
 		</div>
 		<style jsx>{`
@@ -1121,9 +1106,25 @@ function C015() {
 /**
  * 成长路上轮播
  */
-function C016({ data }: { data: IData1[] }) {
+function C016() {
 	SwiperCore.use([Autoplay, Keyboard]);
-
+	const data = [{
+		f001: '/images/img1.png',
+		f004: '',
+		f007: '',
+	}, {
+		f001: '/images/img1.png',
+		f004: '',
+		f007: '',
+	}, {
+		f001: '/images/img1.png',
+		f004: '',
+		f007: '',
+	}, {
+		f001: '/images/img1.png',
+		f004: '',
+		f007: '',
+	}];
 	return <>
 		<Swiper
 			spaceBetween={10}
@@ -1138,7 +1139,7 @@ function C016({ data }: { data: IData1[] }) {
 			speed={1500}
 		>
 			{data.map((tb002, idx) => {
-				const url = `/news-details.html?growth_pro_num=${tb002.f004}`;
+				const url = `/pg009?growth_pro_num=${tb002.f004}`;
 				return <SwiperSlide key={idx}>
 					<li className="s001">
 						<Link href={url}>
@@ -1164,8 +1165,24 @@ function C016({ data }: { data: IData1[] }) {
 /**
  * 成长路上列表
  */
-function C017({ data }: { data: IData1[] }) {
-	data = data.slice(0, 2);
+function C017() {
+	const data = [{
+		f001: '/images/img1.png',
+		f004: '',
+		f007: '',
+	}, {
+		f001: '/images/img1.png',
+		f004: '',
+		f007: '',
+	}, {
+		f001: '/images/img1.png',
+		f004: '',
+		f007: '',
+	}, {
+		f001: '/images/img1.png',
+		f004: '',
+		f007: '',
+	}];
 	return <>
 		<div className="ht50 l-ht50 flex-js-c border-b-1 s001">
 			<span className="font18 s002">成长路上</span>
@@ -1174,7 +1191,7 @@ function C017({ data }: { data: IData1[] }) {
 			</Link>
 		</div>
 		{data.map((tb002, idx) => {
-			const url = `/news-details.html?growth_pro_num=${tb002.f004}`;
+			const url = `/pg009?growth_pro_num=${tb002.f004}`;
 			return <Link href={url} key={idx}>
 				<div className="flex-c border-b-1 s003">
 					<div className="s004">
@@ -1211,7 +1228,7 @@ function C017({ data }: { data: IData1[] }) {
 /**
  * Home
  */
-const page: NextPage<IProps> = ({ data1 }) => {
+const page: NextPage<IProps> = () => {
 	return (
 		<>
 			<Head>
@@ -1219,7 +1236,7 @@ const page: NextPage<IProps> = ({ data1 }) => {
 			</Head>
 			<Header />
 			<C001 />
-			<C002 data1={data1} />
+			<C002 />
 		</>
 	);
 };
@@ -1230,19 +1247,10 @@ export const config: PageConfig = {
 
 export default page;
 
-// pre-render this page at build time
-export const getStaticProps: GetStaticProps<IProps> = async (context) => {
-	// 成长路上
-	const db = an49();
-	const tb2 = db<tb002>('tb002');
-	const data1 = await tb2.select('f004', 'f007', 'f002', 'f001', 'f014', 'f012', 'f015').where({
-		f013: 1,
-		f008: 200
-	}).orderBy('f015', 'desc').orderBy('f012', 'desc').limit(5);
-	return {
+export const getStaticProps: GetStaticProps<IProps> = async () => {
+	return Promise.resolve({
 		props: {
-			data1
 		},
 		revalidate: 60 * 60 * 24 // 1 day
-	};
+	});
 };
