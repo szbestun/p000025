@@ -1166,18 +1166,17 @@ function C016() {
  * 成长路上列表
  */
 function C017() {
+	const f014 = new Date().getTime();
 	const data = [{
 		f001: '/images/img1.png',
 		f004: '',
 		f007: '',
+		f014
 	}, {
 		f001: '/images/img1.png',
 		f004: '',
 		f007: '',
-	}, {
-		f001: '/images/img1.png',
-		f004: '',
-		f007: '',
+		f014
 	}];
 	return <>
 		<div className="ht50 l-ht50 flex-js-c border-b-1 s001">

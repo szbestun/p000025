@@ -2,8 +2,8 @@ import { AppContext, AppInitialProps, NextWebVitalsMetric } from 'next/app';
 import { CssBaseline, GeistProvider } from '@geist-ui/react';
 import { SWRConfig } from 'swr';
 import anylogger from 'anylogger';
-import '../../styles/globals.css';
 import '../../styles/feidao.css';
+import '../../styles/globals.css';
 import '../../styles/iconfont.css';
 
 const logger = anylogger('app');
