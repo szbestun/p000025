@@ -1178,10 +1178,6 @@ function C017() {
 		f001: '/images/img1.png',
 		f004: '',
 		f007: '',
-	}, {
-		f001: '/images/img1.png',
-		f004: '',
-		f007: '',
 	}];
 	return <>
 		<div className="ht50 l-ht50 flex-js-c border-b-1 s001">
